@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-zinc-950 text-zinc-100;
-  }
+/* Direct styling avoid @apply errors during build */
+html,
+body {
+  background-color: #09090b; /* bg-zinc-950 */
+  color: #f4f4f5; /* text-zinc-100 */
 }
 
 /* Custom Scrollbar for Luxury Feel */
@@ -14,19 +15,23 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #09090b; /* zinc-950 */
+  background: #09090b; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46; /* zinc-700 */
+  background: #3f3f46; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b; /* amber-500 */
+  background: #f59e0b; 
 }
 
 /* Fallback gradient if images don't load immediately */
 .bg-gradient-radial {
   background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+.bg-gradient-conic {
+  background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
 }
